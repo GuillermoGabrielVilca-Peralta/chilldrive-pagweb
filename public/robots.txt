@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chilldrive.tecsup.edu.pe/sitemap.xml
