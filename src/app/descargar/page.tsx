@@ -136,15 +136,11 @@ export default function DescargarPage() {
       {/* ── ¿Problemas? ── */}
       <div className="mt-10 rounded-2xl border border-slate-100 bg-slate-50 px-6 py-5 text-center">
         <p className="text-sm text-slate-600">
-          ¿Tienes problemas con la instalación? Revisa la{" "}
-          <a href="/pruebas" className="font-medium text-brand hover:underline">
-            sección de pruebas
+          ¿Tienes problemas con la instalación?{" "}
+          <a href="/contacto" className="font-medium text-brand hover:underline">
+            Contáctanos
           </a>{" "}
-          donde documentamos los dispositivos probados, o{" "}
-          <a href="/entrevistas" className="font-medium text-brand hover:underline">
-            contáctanos
-          </a>
-          .
+          y te ayudamos.
         </p>
       </div>
     </div>

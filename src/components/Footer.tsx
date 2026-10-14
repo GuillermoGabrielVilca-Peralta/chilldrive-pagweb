@@ -20,7 +20,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="border-t border-slate-200 py-4 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} {site.nombre}. Proyecto académico — Tecsup.
+        © {new Date().getFullYear()} {site.nombre}. Startup peruana de movilidad segura.
       </div>
     </footer>
   );

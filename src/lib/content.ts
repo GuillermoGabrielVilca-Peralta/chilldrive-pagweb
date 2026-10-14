@@ -4,8 +4,8 @@ export const site = {
   nombre: "ChillDrive",
   tagline: "Conducción inteligente, recompensada.",
   descripcion:
-    "Sistema de detección vehicular y scoring de conductores: la IA puntúa tu manejo " +
-    "0–100, ganas puntos ChillDrive y los canjeas por premios de aliados.",
+    "ChillDrive evalúa tu forma de manejar desde tu celular, te muestra en qué mejorar y " +
+    "premia la conducción segura con beneficios en comercios aliados.",
   // /descargar = página interna de descarga; actualizar apkUrl ahí cuando el APK esté hospedado.
   appUrl: "/descargar",
 };
@@ -29,420 +29,328 @@ export const appInfo = {
     "En teléfonos Xiaomi / MIUI: ve a Ajustes → Contraseña y seguridad → Instalar via USB, actívalo, y acepta el diálogo de instalación que aparece en pantalla.",
   requisitos: [
     "Android 6.0 (Marshmallow) o superior",
-    "Cámara trasera (detección visual YOLO on-device)",
-    "GPS habilitado (recorrido de ruta y telemática)",
-    "Acelerómetro (detección de maniobras por sensores)",
-    "Conexión a internet para sincronizar (funciona offline en viaje)",
+    "GPS activado, para registrar tu recorrido",
+    "Acelerómetro, para detectar maniobras bruscas",
+    "Cámara trasera, para la detección de señales y peatones",
+    "Internet para sincronizar (durante el viaje funciona sin señal)",
     "~80 MB de espacio libre",
   ],
+};
+
+export const contacto = {
+  correo: "ChillDrivePeru@gmail.com",
+  whatsapp: "+51 937 395 614",
+  // Enlace directo al chat (formato internacional, sin espacios ni "+").
+  whatsappUrl: "https://wa.me/51937395614",
+  ciudad: "Perú",
 };
 
 export type NavLink = { href: string; label: string };
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Inicio" },
-  { href: "/avances", label: "Avances" },
-  { href: "/pruebas", label: "Pruebas" },
-  { href: "/entrevistas", label: "Entrevistas" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/planes", label: "Planes" },
   { href: "/aliados", label: "Aliados" },
-  { href: "/demo-admin", label: "Demo Admin" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 // ---------- INICIO ----------
 
 export const estadisticas: { valor: string; etiqueta: string }[] = [
-  { valor: "0–100", etiqueta: "Score de conducción por viaje" },
-  { valor: "5", etiqueta: "Categorías evaluadas" },
-  { valor: "< 1 s", etiqueta: "Detección on-device sin internet" },
-  { valor: "100%", etiqueta: "Offline-first con sync automático" },
+  { valor: "0–100", etiqueta: "Puntaje de manejo en cada viaje" },
+  { valor: "5", etiqueta: "Aspectos de tu conducción evaluados" },
+  { valor: "Sin señal", etiqueta: "Registra tu viaje aunque no tengas internet" },
+  { valor: "QR único", etiqueta: "Canjes seguros en comercios aliados" },
 ];
 
 export const pasos: { paso: string; titulo: string; desc: string }[] = [
   {
     paso: "01",
-    titulo: "Registra tu vehículo",
-    desc: "Crea tu cuenta, añade tu placa y vincula la cámara. En segundos estás listo para el primer viaje.",
+    titulo: "Crea tu cuenta",
+    desc: "Descarga la app, regístrate y añade tu vehículo con su placa. En segundos estás listo para tu primer viaje.",
   },
   {
     paso: "02",
-    titulo: "Activa la detección",
-    desc: "La IA detecta frenadas bruscas, aceleraciones, giros y uso del celular en tiempo real — sin necesidad de internet.",
+    titulo: "Maneja como siempre",
+    desc: "Inicia el viaje y la app detecta frenadas bruscas, aceleraciones, giros y uso del celular mientras conduces.",
   },
   {
     paso: "03",
     titulo: "Recibe tu calificación",
-    desc: "Al terminar el viaje obtienes un score 0–100 con desglose por categoría: Velocidad, Frenado, Aceleración, Giros y Celular.",
+    desc: "Al terminar obtienes un puntaje de 0 a 100 y ves en el mapa dónde ocurrió cada infracción.",
   },
   {
     paso: "04",
-    titulo: "Canjea tus puntos",
-    desc: "Cada viaje seguro acumula ChillPoints. Canjéalos por descuentos y beneficios en nuestros aliados con un QR único.",
+    titulo: "Canjea tus premios",
+    desc: "Cada viaje seguro suma puntos. Canjéalos por beneficios en comercios aliados con un código QR único.",
   },
 ];
 
-export const caracteristicas: { titulo: string; desc: string; icono: string }[] = [
+export const beneficios: { icono: string; titulo: string; desc: string }[] = [
   {
-    icono: "cpu",
-    titulo: "Detección on-device",
-    desc: "YOLO TFLite corre directamente en el teléfono. Sin latencia de red, sin costos de API de visión por computadora.",
-  },
-  {
-    icono: "sensor",
-    titulo: "Telemática por sensores",
-    desc: "El acelerómetro y el GPS del celular detectan maniobras bruscas con umbrales calibrados en conducción real.",
-  },
-  {
-    icono: "offline",
-    titulo: "Offline-first",
-    desc: "Los eventos se guardan localmente en SQLite y se sincronizan al volver la conexión, con idempotencia garantizada.",
-  },
-  {
-    icono: "score",
-    titulo: "Scoring por categorías",
-    desc: "Cada evento descuenta puntos de su categoría. El score refleja dónde mejorar: frenado, velocidad, giros, celular.",
-  },
-  {
-    icono: "puntos",
-    titulo: "Puntos y recompensas",
-    desc: "Sistema de niveles Bronce→Diamante con ledger inmutable de movimientos. Los canjes generan un QR con pgcrypto.",
+    icono: "puntaje",
+    titulo: "Conoce tu forma de manejar",
+    desc: "Un puntaje de 0 a 100 en cada viaje, separado en velocidad, frenado, aceleración, giros y uso del celular.",
   },
   {
     icono: "mapa",
-    titulo: "Historial de rutas",
-    desc: "Cada viaje guarda el recorrido GPS. El mapa de ruta se visualiza en la app junto a la calificación del viaje.",
+    titulo: "Mira dónde ocurrió cada infracción",
+    desc: "El mapa de tu recorrido marca el lugar exacto de cada maniobra brusca para que sepas dónde tener más cuidado.",
+  },
+  {
+    icono: "regalo",
+    titulo: "Gana premios por manejar bien",
+    desc: "Acumula puntos, sube de nivel de Bronce a Diamante y canjéalos en nuestra red de comercios aliados.",
+  },
+  {
+    icono: "trofeo",
+    titulo: "Retos y ranking",
+    desc: "Completa retos semanales, mantén tu racha de buen manejo y compite en el ranking de conductores.",
+  },
+  {
+    icono: "celular",
+    titulo: "Solo necesitas tu celular",
+    desc: "Sin instalar equipos en tu vehículo: la app usa el GPS y los sensores de tu teléfono.",
+  },
+  {
+    icono: "sinSenal",
+    titulo: "Funciona aunque pierdas señal",
+    desc: "La app registra tu viaje sin internet y sincroniza todo cuando vuelves a tener conexión.",
   },
 ];
 
-// ---------- AVANCES ----------
+// ---------- SERVICIOS ----------
 
-export type FaseEstado = "Completada" | "En progreso" | "Pendiente";
+export type EstadoServicio = "Disponible" | "Próximamente";
 
-export interface Fase {
+export interface Servicio {
   id: string;
+  icono: string;
+  publico: string;
+  titulo: string;
+  desc: string;
+  estado: EstadoServicio;
+  puntos: string[];
+  cta: { texto: string; href: string };
+}
+
+export const servicios: Servicio[] = [
+  {
+    id: "conductores",
+    icono: "conductor",
+    publico: "Para conductores",
+    titulo: "Maneja mejor y gana premios",
+    desc: "Para conductores particulares y profesionales que quieren saber cómo manejan y ser recompensados por hacerlo bien.",
+    estado: "Disponible",
+    puntos: [
+      "Puntaje de 0 a 100 en cada viaje, con desglose por categoría",
+      "Mapa del recorrido con el lugar exacto de cada infracción",
+      "Alertas por voz cuando ocurre una maniobra brusca",
+      "Puntos, niveles, retos semanales y ranking de conductores",
+      "Canje de beneficios en comercios aliados con código QR",
+    ],
+    cta: { texto: "Descargar la app", href: "/descargar" },
+  },
+  {
+    id: "empresas",
+    icono: "empresa",
+    publico: "Para empresas con flotas",
+    titulo: "Conoce cómo manejan tus choferes",
+    desc: "Para empresas de transporte, delivery y logística que necesitan visibilidad sobre la conducción de su equipo.",
+    estado: "Próximamente",
+    puntos: [
+      "Panel web con el puntaje de cada conductor de tu flota",
+      "Ranking interno para reconocer a los mejores choferes",
+      "Alertas de conducción riesgosa",
+      "Historial de viajes e infracciones por conductor",
+    ],
+    cta: { texto: "Solicitar información", href: "/contacto" },
+  },
+  {
+    id: "comercios",
+    icono: "comercio",
+    publico: "Para comercios",
+    titulo: "Atrae nuevos clientes a tu negocio",
+    desc: "Para grifos, restaurantes, supermercados y talleres que quieren llegar a conductores con un beneficio atractivo.",
+    estado: "Disponible",
+    puntos: [
+      "Publica tus beneficios dentro de la app ChillDrive",
+      "Los conductores los canjean con los puntos que ganan manejando",
+      "Cada canje genera un código QR único que evita fraudes",
+      "Solo pagas una comisión por cada canje realizado",
+    ],
+    cta: { texto: "Quiero ser aliado", href: "/contacto" },
+  },
+];
+
+export const capturasApp: { src: string; alt: string; titulo: string }[] = [
+  { src: "/img/app/app-inicio.jpg", alt: "Pantalla de inicio de ChillDrive con ranking, racha, nivel y retos", titulo: "Tu estatus del día" },
+  { src: "/img/app/app-calificacion.jpg", alt: "Calificación de un viaje: 83 de 100 con desglose por categoría", titulo: "Calificación de cada viaje" },
+  { src: "/img/app/app-mapa.jpg", alt: "Mapa del viaje con íconos en el lugar de cada infracción", titulo: "Mapa de infracciones" },
+];
+
+// ---------- PLANES ----------
+
+export interface Plan {
   nombre: string;
-  estado: FaseEstado;
-  fecha: string;
-  items: string[];
+  precio: string;
+  periodo: string;
+  para: string;
+  destacado: boolean;
+  estado?: EstadoServicio;
+  incluye: string[];
+  cta: { texto: string; href: string };
 }
 
-export const fases: Fase[] = [
+export const planes: Plan[] = [
   {
-    id: "A",
-    nombre: "Core del sistema",
-    estado: "Completada",
-    fecha: "Marzo 2026",
-    items: [
-      "Registro y autenticación JWT de usuarios",
-      "Gestión de vehículos y cámaras",
-      "Flujo completo de viajes: iniciar → eventos → finalizar",
-      "Score 0–100 por viaje basado en eventos de conducción",
-      "API REST documentada en Swagger (ASP.NET Core + PostgreSQL)",
+    nombre: "Gratuito",
+    precio: "S/ 0",
+    periodo: "para siempre",
+    para: "Conductores particulares",
+    destacado: false,
+    incluye: [
+      "Puntaje de 0 a 100 en cada viaje",
+      "Desglose por categoría de manejo",
+      "Mapa del recorrido con infracciones",
+      "Puntos, niveles, retos y ranking",
+      "Canje de beneficios con aliados",
     ],
+    cta: { texto: "Descargar gratis", href: "/descargar" },
   },
   {
-    id: "B",
-    nombre: "Puntos y aliados",
-    estado: "Completada",
-    fecha: "Abril 2026",
-    items: [
-      "Sistema de ChillPoints con ledger inmutable (movimientos_puntos)",
-      "Niveles de conductor: Bronce → Plata → Oro → Platino → Diamante",
-      "Módulo de aliados y recompensas configurables",
-      "Canjes con código QR criptográfico (pgcrypto)",
-      "Ranking público de conductores",
+    nombre: "Profesional",
+    precio: "S/ 15",
+    periodo: "al mes",
+    para: "Taxistas, delivery y mototaxis",
+    destacado: true,
+    incluye: [
+      "Todo lo del plan Gratuito",
+      "Perfil de conductor profesional por rubro",
+      "Ranking con conductores de tu mismo rubro",
+      "Historial completo de viajes y calificaciones",
+      "Reporte de desempeño para mostrar a clientes o empresas",
     ],
+    cta: { texto: "Empezar ahora", href: "/descargar" },
   },
   {
-    id: "C",
-    nombre: "Eventos offline e idempotencia",
-    estado: "Completada",
-    fecha: "Mayo 2026",
-    items: [
-      "Outbox SQLite en la app: los eventos se guardan antes de enviar",
-      "Sincronización automática al recuperar conexión (backoff 5→60 s)",
-      "Idempotencia via idLocal: el mismo evento no se duplica si se reintenta",
-      "Guard de pertenencia: un evento solo aplica al viaje del conductor activo",
-      "Anti-flood: eventos del mismo tipo en ±3 s de detección se rechazan",
+    nombre: "Empresas",
+    precio: "A medida",
+    periodo: "según tu flota",
+    para: "Flotas de transporte y logística",
+    destacado: false,
+    estado: "Próximamente",
+    incluye: [
+      "Plan Profesional para todos tus conductores",
+      "Panel web de monitoreo de la flota",
+      "Alertas de conducción riesgosa",
+      "Atención dedicada",
     ],
-  },
-  {
-    id: "C.2",
-    nombre: "Telemática por sensores",
-    estado: "Completada",
-    fecha: "Junio 2026",
-    items: [
-      "Detección de frenado brusco: pico de acelerómetro ≥ 150 ms + delta GPS",
-      "Detección de aceleración brusca con el mismo criterio longitudinal",
-      "Detección de giro brusco por delta de heading GPS (sin requerir pico longitudinal)",
-      "Detección de uso de celular durante la conducción",
-      "Tiempo de detección del cliente como fuente de verdad (correcto orden offline)",
-    ],
-  },
-  {
-    id: "D",
-    nombre: "Calificación por viaje",
-    estado: "Completada",
-    fecha: "Junio 2026",
-    items: [
-      "Tab 'Calificación' en el detalle de cada viaje en la app",
-      "Score global + desglose en 5 categorías con impacto por evento",
-      "Anillo de progreso visual + barras por categoría con etiqueta (Excelente/Bueno/Mejorar)",
-      "Funciona completamente offline: calculado en la app desde los eventos locales",
-    ],
-  },
-  {
-    id: "E",
-    nombre: "Despliegue en la nube",
-    estado: "Completada",
-    fecha: "Septiembre 2026",
-    items: [
-      "Servidor de ChillDrive publicado en la nube (Render) mediante un contenedor Docker",
-      "Base de datos PostgreSQL en la nube (Neon) con todas las tablas y vistas del sistema",
-      "Monitoreo de salud del servidor que verifica la conexión con la base de datos",
-      "App configurada para conectarse al servidor en producción por HTTPS",
-    ],
+    cta: { texto: "Solicitar información", href: "/contacto" },
   },
 ];
 
-// ---------- PRUEBAS ----------
+export const metodosPago = ["Yape", "Plin", "Tarjeta", "Efectivo"];
 
-export interface Prueba {
-  tipo: string;
-  cantidad: string;
-  descripcion: string;
-  resultados: string[];
-}
+// ---------- ALIADOS (por rubro, sin marcas) ----------
 
-export const pruebas: Prueba[] = [
+export const rubrosAliados: { icono: string; rubro: string; desc: string; beneficio: string }[] = [
   {
-    tipo: "Tests unitarios",
-    cantidad: "20+ tests",
-    descripcion: "xUnit + Moq + FakeUnitOfWork — corren sin base de datos real, en CI.",
-    resultados: [
-      "ViajeServiceTests: iniciar, finalizar, cancelar, retomar viaje del día, cerrar viaje huérfano",
-      "EventoServiceTests: idempotencia (idLocal), pertenencia, anti-flood, fecha de detección",
-      "CanjeServiceTests: generación de QR, validación de puntos suficientes",
-      "100% de los tests en verde en el build actual",
-    ],
+    icono: "combustible",
+    rubro: "Combustible",
+    desc: "Grifos y estaciones de servicio.",
+    beneficio: "Descuentos en la carga de combustible",
   },
   {
-    tipo: "Prueba de campo",
-    cantidad: "Dispositivo real",
-    descripcion: "Manejo real en zona urbana de Lima con Xiaomi Redmi Note, detección activada.",
-    resultados: [
-      "Frenado brusco detectado correctamente en paradas de semáforo",
-      "Aceleración brusca detectada al salir de cruce",
-      "Giro brusco detectado en curva cerrada",
-      "Uso de celular detectado al levantar el teléfono en movimiento",
-    ],
+    icono: "comida",
+    rubro: "Gastronomía",
+    desc: "Restaurantes, cafeterías y comida rápida.",
+    beneficio: "Productos gratis o combos con descuento",
   },
   {
-    tipo: "Prueba offline",
-    cantidad: "Modo avión",
-    descripcion: "Viaje completo en modo avión: eventos en outbox local, sync al reconectar.",
-    resultados: [
-      "12 eventos almacenados en SQLite sin pérdida ni error",
-      "Sincronización exitosa al reconectar: todos enviados sin duplicados",
-      "Idempotencia confirmada: retransmisión de los 12 devuelve 200 sin duplicar puntos",
-      "Score calculado correctamente en app sin conexión",
-    ],
+    icono: "carrito",
+    rubro: "Supermercados y tiendas",
+    desc: "Supermercados, minimarkets y retail.",
+    beneficio: "Descuentos en tus compras",
   },
   {
-    tipo: "Prueba de scoring",
-    cantidad: "Viaje completo",
-    descripcion: "Viaje de 8 km / 15 min con múltiples eventos inducidos.",
-    resultados: [
-      "Score inicial 100 → descuentos por eventos → score final 71",
-      "Desglose: Velocidad 100, Frenado 75, Aceleración 80, Giros 85, Celular 70",
-      "Puntos acreditados al ledger inmutable post-viaje",
-      "Historial de ruta GPS visualizado en mapa OpenStreetMap en la app",
-    ],
+    icono: "herramienta",
+    rubro: "Mantenimiento vehicular",
+    desc: "Talleres, lubricentros y lavado de autos.",
+    beneficio: "Descuentos en cambio de aceite, lavado y repuestos",
+  },
+  {
+    icono: "salud",
+    rubro: "Salud",
+    desc: "Farmacias y centros de salud.",
+    beneficio: "Descuentos en productos y servicios de salud",
+  },
+  {
+    icono: "entretenimiento",
+    rubro: "Entretenimiento",
+    desc: "Cines y actividades de ocio.",
+    beneficio: "Entradas y experiencias con descuento",
   },
 ];
 
-// ---------- ENTREVISTAS ----------
-
-export interface Entrevista {
-  perfil: string;
-  codigo: string;
-  ciudad: string;
-  extracto: string;
-  insights: string[];
-}
-
-export const entrevistas: Entrevista[] = [
-  {
-    perfil: "Conductor de rideshare",
-    codigo: "E-01",
-    ciudad: "Lima",
-    extracto:
-      "«Me interesa saber si soy un buen conductor — la app de la empresa solo me da la calificación del pasajero, no la de mi manejo real.»",
-    insights: [
-      "Quiere feedback objetivo del manejo, independiente de la opinión del pasajero",
-      "Le preocupa el consumo de combustible (manejo brusco = más gasto)",
-      "Valora recompensas en gasolineras y supermercados",
-    ],
-  },
-  {
-    perfil: "Conductor particular",
-    codigo: "E-02",
-    ciudad: "Lima",
-    extracto:
-      "«Si me dan puntos por manejar bien, los canjearía en el super. Es como los puntos del banco pero por conducir.»",
-    insights: [
-      "Analogía espontánea con programas de fidelización conocidos",
-      "Acepta que el teléfono esté activo si entiende el beneficio que obtiene",
-      "Prefiere que la detección corra en segundo plano sin ocupar la pantalla",
-    ],
-  },
-  {
-    perfil: "Responsable de flota logística",
-    codigo: "E-03",
-    ciudad: "Lima",
-    extracto:
-      "«Tenemos 15 camionetas. No sabemos cómo maneja cada uno. Si hay un sistema que nos muestre eso en un panel, lo usaríamos.»",
-    insights: [
-      "Necesidad clara de visibilidad de la flota desde un panel web",
-      "Interés en alertas automáticas por mal comportamiento al volante",
-      "Potencial cliente del módulo de administración / empresa (Fase 2 web)",
-    ],
-  },
-  {
-    perfil: "Aliado potencial (retail)",
-    codigo: "E-04",
-    ciudad: "Lima",
-    extracto:
-      "«Si el sistema trae conductores a nuestro local con descuentos, nos interesa. El QR de canje es una buena idea para evitar fraudes.»",
-    insights: [
-      "El QR criptográfico de un solo uso reduce el riesgo de fraude",
-      "Prefiere descuentos en porcentaje a montos fijos (más flexible)",
-      "Abierto a la integración si hay volumen de conductores activos",
-    ],
-  },
+export const pasosCanje: { paso: string; titulo: string; desc: string }[] = [
+  { paso: "1", titulo: "Acumula puntos", desc: "Cada viaje con buen manejo suma puntos a tu cuenta." },
+  { paso: "2", titulo: "Elige un beneficio", desc: "Revisa en la app los beneficios disponibles de nuestros aliados." },
+  { paso: "3", titulo: "Muestra tu QR", desc: "Presenta el código único en el comercio y disfruta tu beneficio." },
 ];
 
-// ---------- ALIADOS ----------
-
-export interface Aliado {
-  nombre: string;
-  categoria: string;
-  descripcion: string;
-  beneficio: string;
-}
-
-export const aliados: Aliado[] = [
-  {
-    nombre: "Primax",
-    categoria: "Combustible",
-    descripcion: "Red de grifos a nivel nacional con presencia en Lima y provincias.",
-    beneficio: "Hasta 5% de descuento en carga de combustible",
-  },
-  {
-    nombre: "Tottus",
-    categoria: "Supermercado",
-    descripcion: "Cadena de supermercados de alcance nacional con variedad de productos.",
-    beneficio: "Descuento en compras mayores a S/ 50",
-  },
-  {
-    nombre: "Bembos",
-    categoria: "Restaurante",
-    descripcion: "Cadena peruana de hamburguesas con presencia en Lima y principales ciudades.",
-    beneficio: "Producto gratis o combo con descuento al canjear",
-  },
-  {
-    nombre: "AutoZone",
-    categoria: "Mantenimiento",
-    descripcion: "Tienda especializada en accesorios y repuestos para vehículos.",
-    beneficio: "10% de descuento en compras de mantenimiento",
-  },
-  {
-    nombre: "Pizza Hut",
-    categoria: "Restaurante",
-    descripcion: "Cadena internacional con locales en Lima y provincias del Perú.",
-    beneficio: "Descuento en delivery y consumo en local",
-  },
-  {
-    nombre: "Plaza Vea",
-    categoria: "Supermercado",
-    descripcion: "Supermercado presente en Lima, Arequipa, Trujillo y otras ciudades.",
-    beneficio: "Descuentos en productos seleccionados de la semana",
-  },
+export const ventajasAliado: { icono: string; titulo: string; desc: string }[] = [
+  { icono: "usuarios", titulo: "Nuevos clientes", desc: "Llega a conductores que buscan dónde usar sus puntos." },
+  { icono: "qr", titulo: "Canjes seguros", desc: "Cada QR es único y de un solo uso: sin fraudes ni duplicados." },
+  { icono: "grafico", titulo: "Pagas por resultados", desc: "Solo pagas una comisión por cada canje realizado." },
 ];
 
-// Categorías únicas para filtros / badges de aliados
-export const categoriasAliados = [...new Set(aliados.map((a) => a.categoria))];
+// ---------- NOSOTROS ----------
 
-// ---------- DEMO ADMIN — datos mock ----------
+export const nosotros = {
+  intro:
+    "ChillDrive es una startup peruana que busca reducir la conducción riesgosa con una idea simple: " +
+    "medir cómo manejamos y premiar a quienes lo hacen bien.",
+  historia: [
+    "ChillDrive nació en 2025 como un proyecto de emprendimiento en Tecsup. Antes de construir la " +
+      "plataforma conversamos con conductores, responsables de flotas y comercios para entender sus necesidades.",
+    "Los conductores nos dijeron que querían saber de forma objetiva cómo manejan, más allá de la " +
+      "calificación de un pasajero. Las empresas con flotas no tenían forma de ver cómo conducen sus " +
+      "choferes. Y los comercios buscaban nuevas formas de atraer clientes.",
+    "ChillDrive une esas tres necesidades: el conductor mejora y gana premios, las empresas ganan " +
+      "visibilidad y los comercios ganan clientes.",
+    "En 2026 el proyecto tomó impulso: ganó competiciones y empezó a darse a conocer, consolidándose " +
+      "como una propuesta de movilidad segura hecha en el Perú.",
+  ],
+  mision:
+    "Promover una conducción más segura en el Perú, dando a cada conductor información clara sobre su " +
+    "manejo y recompensas por mejorar.",
+  vision:
+    "Ser la plataforma de referencia en Latinoamérica para medir y premiar la conducción segura.",
+  valores: [
+    { icono: "escudo", titulo: "Seguridad", desc: "Cada función busca que menos personas se expongan a riesgos en la vía." },
+    { icono: "puntaje", titulo: "Transparencia", desc: "El puntaje se calcula igual para todos y no se puede alterar desde la app." },
+    { icono: "celular", titulo: "Simplicidad", desc: "Basta con un celular: sin equipos ni instalaciones en el vehículo." },
+    { icono: "regalo", titulo: "Recompensa", desc: "Manejar bien siempre tiene que valer la pena." },
+  ],
+};
 
-export const kpisAdmin = [
-  { etiqueta: "Conductores registrados", valor: "48", delta: "+3 esta semana" },
-  { etiqueta: "Viajes activos ahora", valor: "3", delta: "en tiempo real" },
-  { etiqueta: "Score promedio hoy", valor: "78", delta: "de 0–100" },
-  { etiqueta: "Canjes esta semana", valor: "12", delta: "+4 vs. semana ant." },
-];
-
-export interface VehiculoActivo {
-  conductor: string;
-  placa: string;
-  ruta: string;
-  scoreActual: number;
-  ultimoEvento: string | null;
-  inicio: string;
-}
-
-export const vehiculosActivos: VehiculoActivo[] = [
+export const equipo: { nombre: string; cargo: string; rol: string }[] = [
   {
-    conductor: "Carlos M.",
-    placa: "ABC-123",
-    ruta: "San Isidro → Miraflores",
-    scoreActual: 85,
-    ultimoEvento: null,
-    inicio: "hace 12 min",
+    nombre: "Guillermo Vilca",
+    cargo: "CEO",
+    rol: "Lidera la estrategia y el crecimiento de ChillDrive.",
   },
   {
-    conductor: "Ana R.",
-    placa: "XYZ-456",
-    ruta: "La Molina → Surco",
-    scoreActual: 92,
-    ultimoEvento: null,
-    inicio: "hace 5 min",
+    nombre: "Jorge Pino",
+    cargo: "CTO",
+    rol: "Dirige el desarrollo de la plataforma y la tecnología de detección.",
   },
   {
-    conductor: "Luis T.",
-    placa: "DEF-789",
-    ruta: "Lince → San Borja",
-    scoreActual: 71,
-    ultimoEvento: "Frenado brusco",
-    inicio: "hace 28 min",
+    nombre: "Wilder Salas",
+    cargo: "COO",
+    rol: "Gestiona las operaciones y la relación con aliados y empresas.",
   },
-];
-
-export interface EventoReciente {
-  conductor: string;
-  tipo: string;
-  viaje: string;
-  hora: string;
-  negativo: boolean;
-}
-
-export const actividadReciente: EventoReciente[] = [
-  { conductor: "Luis T.", tipo: "Frenado brusco", viaje: "Lince → San Borja", hora: "hace 2 min", negativo: true },
-  { conductor: "Ana R.", tipo: "Viaje iniciado", viaje: "La Molina → Surco", hora: "hace 5 min", negativo: false },
-  { conductor: "Carlos M.", tipo: "Uso de celular", viaje: "San Isidro → Miraflores", hora: "hace 9 min", negativo: true },
-  { conductor: "María P.", tipo: "Viaje finalizado", viaje: "Barranco → Chorrillos", hora: "hace 15 min", negativo: false },
-  { conductor: "José R.", tipo: "Canje realizado", viaje: "Tottus — S/ 15 off", hora: "hace 22 min", negativo: false },
-];
-
-// Ranking mock para cuando el backend no está accesible (fallback)
-import type { RankingItem } from "./api";
-
-export const rankingMock: RankingItem[] = [
-  { usuarioId: 1, conductor: "María Pérez López", tipoConductor: "Particular", puntosActuales: 2150, puntosHistoricos: 4100, nivel: "Diamante", puntajePromedio: 93.2, totalViajes: 62 },
-  { usuarioId: 2, conductor: "Jorge Ramírez S.", tipoConductor: "Particular", puntosActuales: 1870, puntosHistoricos: 3500, nivel: "Platino", puntajePromedio: 88.7, totalViajes: 48 },
-  { usuarioId: 3, conductor: "Ana Torres V.", tipoConductor: "Particular", puntosActuales: 1540, puntosHistoricos: 2900, nivel: "Oro", puntajePromedio: 84.1, totalViajes: 41 },
-  { usuarioId: 4, conductor: "Carlos Mendoza R.", tipoConductor: "Particular", puntosActuales: 1230, puntosHistoricos: 2200, nivel: "Oro", puntajePromedio: 80.5, totalViajes: 35 },
-  { usuarioId: 5, conductor: "Luis Huamán C.", tipoConductor: "Particular", puntosActuales: 980, puntosHistoricos: 1700, nivel: "Plata", puntajePromedio: 76.3, totalViajes: 29 },
-  { usuarioId: 6, conductor: "Rosa Chávez M.", tipoConductor: "Particular", puntosActuales: 750, puntosHistoricos: 1200, nivel: "Plata", puntajePromedio: 72.8, totalViajes: 22 },
-  { usuarioId: 7, conductor: "Pedro Quispe A.", tipoConductor: "Particular", puntosActuales: 520, puntosHistoricos: 850, nivel: "Bronce", puntajePromedio: 68.4, totalViajes: 17 },
-  { usuarioId: 8, conductor: "Sofía Vargas R.", tipoConductor: "Particular", puntosActuales: 310, puntosHistoricos: 500, nivel: "Bronce", puntajePromedio: 62.0, totalViajes: 11 },
 ];
