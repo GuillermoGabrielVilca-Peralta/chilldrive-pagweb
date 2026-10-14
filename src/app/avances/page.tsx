@@ -5,7 +5,7 @@ import { FadeIn, StaggerList, StaggerItem } from "@/components/Animate";
 export const metadata: Metadata = {
   title: "Avances",
   description:
-    "Fases completadas del proyecto ChillDrive: desde el core del sistema hasta telemática por sensores, scoring por categorías y la web informativa.",
+    "Fases completadas del proyecto ChillDrive: desde el core del sistema hasta telemática por sensores, scoring por categorías y el despliegue en la nube.",
 };
 
 function BadgeEstado({ estado }: { estado: FaseEstado }) {
@@ -34,7 +34,7 @@ export default function AvancesPage() {
         </h1>
         <p className="mt-3 max-w-2xl text-slate-600">
           Lo que hemos construido fase a fase: desde el core del sistema hasta la telemática
-          por sensores, la web informativa y el panel demo.
+          por sensores, la calificación por viaje y el despliegue en la nube.
         </p>
       </FadeIn>
 

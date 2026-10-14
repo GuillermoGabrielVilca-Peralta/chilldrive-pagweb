@@ -191,15 +191,15 @@ export const fases: Fase[] = [
     ],
   },
   {
-    id: "Web",
-    nombre: "Web informativa y panel demo",
-    estado: "En progreso",
-    fecha: "Julio 2026",
+    id: "E",
+    nombre: "Despliegue en la nube",
+    estado: "Completada",
+    fecha: "Septiembre 2026",
     items: [
-      "Landing informativa con Next.js 16 + React 19 + Tailwind 4 + Docker",
-      "Secciones: Avances, Pruebas, Entrevistas, Aliados con contenido real",
-      "Panel demo de administrador con ranking en vivo (BFF → API ChillDrive)",
-      "Página 404 personalizada y estructura completa App Router",
+      "Servidor de ChillDrive publicado en la nube (Render) mediante un contenedor Docker",
+      "Base de datos PostgreSQL en la nube (Neon) con todas las tablas y vistas del sistema",
+      "Monitoreo de salud del servidor que verifica la conexión con la base de datos",
+      "App configurada para conectarse al servidor en producción por HTTPS",
     ],
   },
 ];
